@@ -33,19 +33,16 @@ namespace MultipleDbContextEfCoreDemo.Web.Tests
         {
             UseInMemoryDb(app.ApplicationServices);
 
+            app.UseRouting();
+            
             app.UseAbp(); //Initializes ABP framework.
 
             app.UseExceptionHandler("/Error");
 
             app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}"
-                    );
-            });
+            
+            app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
+            
         }
 
         private void UseInMemoryDb(IServiceProvider serviceProvider)

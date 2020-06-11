@@ -4,11 +4,13 @@ using Abp.EntityFrameworkCore;
 using Abp.EntityFrameworkCore.Configuration;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using MultipleDbContextEfCoreDemo.EntityFrameworkCoreSecond;
 
 namespace MultipleDbContextEfCoreDemo.EntityFrameworkCore
 {
     [DependsOn(
         typeof(MultipleDbContextEfCoreDemoCoreModule),
+        typeof(MultipleDbContextEfCoreDemoEntityFrameworkCoreSecondModule),
         typeof(AbpEntityFrameworkCoreModule))]
     public class MultipleDbContextEfCoreDemoEntityFrameworkCoreModule : AbpModule
     {
@@ -26,19 +28,6 @@ namespace MultipleDbContextEfCoreDemo.EntityFrameworkCore
                 else
                 {
                     DbContextOptionsConfigurer.Configure(options.DbContextOptions, options.ConnectionString);
-                }
-            });
-
-            // Configure second DbContext
-            Configuration.Modules.AbpEfCore().AddDbContext<MultipleDbContextEfCoreDemoSecondDbContext>(options =>
-            {
-                if (options.ExistingConnection != null)
-                {
-                    SecondDbContextOptionsConfigurer.Configure(options.DbContextOptions, options.ExistingConnection);
-                }
-                else
-                {
-                    SecondDbContextOptionsConfigurer.Configure(options.DbContextOptions, options.ConnectionString);
                 }
             });
         }

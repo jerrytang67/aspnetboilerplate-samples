@@ -14,7 +14,7 @@ namespace MultipleDbContextEfCoreDemo.Tests
         typeof(MultipleDbContextEfCoreDemoApplicationModule),
         typeof(MultipleDbContextEfCoreDemoEntityFrameworkCoreModule),
         typeof(AbpTestBaseModule)
-        )]
+    )]
     public class MultipleDbContextEfCoreDemoTestModule : AbpModule
     {
         public override void PreInitialize()
@@ -39,7 +39,7 @@ namespace MultipleDbContextEfCoreDemo.Tests
             );
 
             var builder = new DbContextOptionsBuilder<MultipleDbContextEfCoreDemoDbContext>();
-            builder.UseInMemoryDatabase().UseInternalServiceProvider(serviceProvider);
+            builder.UseInMemoryDatabase(databaseName: "InMemoryDb").UseInternalServiceProvider(serviceProvider);
 
             IocManager.IocContainer.Register(
                 Component

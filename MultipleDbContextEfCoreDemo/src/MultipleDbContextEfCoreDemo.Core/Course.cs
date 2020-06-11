@@ -10,7 +10,6 @@ namespace MultipleDbContextEfCoreDemo
 
         public Course()
         {
-
         }
 
         public Course(string courseName)

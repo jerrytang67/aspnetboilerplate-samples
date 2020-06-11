@@ -1,7 +1,8 @@
 ﻿using System.Data.Common;
 using Microsoft.EntityFrameworkCore;
+using MultipleDbContextEfCoreDemo.EntityFrameworkCore;
 
-namespace MultipleDbContextEfCoreDemo.EntityFrameworkCore
+namespace MultipleDbContextEfCoreDemo.EntityFrameworkCoreSecond.EntityFrameworkCore
 {
     public static class SecondDbContextOptionsConfigurer
     {

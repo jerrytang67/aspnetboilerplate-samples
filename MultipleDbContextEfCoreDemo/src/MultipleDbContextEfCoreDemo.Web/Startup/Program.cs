@@ -1,5 +1,7 @@
 ﻿using System.IO;
+using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 
 namespace MultipleDbContextEfCoreDemo.Web.Startup
 {
@@ -7,14 +9,14 @@ namespace MultipleDbContextEfCoreDemo.Web.Startup
     {
         public static void Main(string[] args)
         {
-            var host = new WebHostBuilder()
-                .UseKestrel()
-                .UseContentRoot(Directory.GetCurrentDirectory())
-                .UseIISIntegration()
-                .UseStartup<Startup>()
-                .Build();
+            BuildWebHost(args).Build().Run();
+        }
 
-            host.Run();
+        public static IWebHostBuilder BuildWebHost(string[] args)
+        {
+            return WebHost.CreateDefaultBuilder(args)
+                    .UseStartup<Startup>()
+                ;
         }
     }
 }

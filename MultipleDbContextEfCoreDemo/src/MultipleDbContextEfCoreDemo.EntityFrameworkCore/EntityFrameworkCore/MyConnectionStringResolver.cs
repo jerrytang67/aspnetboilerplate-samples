@@ -4,7 +4,7 @@ using Abp.Domain.Uow;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using MultipleDbContextEfCoreDemo.Configuration;
-using MultipleDbContextEfCoreDemo.Web;
+using MultipleDbContextEfCoreDemo.EntityFrameworkCoreSecond.EntityFrameworkCore;
 
 namespace MultipleDbContextEfCoreDemo.EntityFrameworkCore
 {
@@ -12,7 +12,7 @@ namespace MultipleDbContextEfCoreDemo.EntityFrameworkCore
     {
         private readonly IConfigurationRoot _appConfiguration;
 
-        public MyConnectionStringResolver(IAbpStartupConfiguration configuration,IHostingEnvironment hostingEnvironment) 
+        public MyConnectionStringResolver(IAbpStartupConfiguration configuration, IHostingEnvironment hostingEnvironment)
             : base(configuration)
         {
             _appConfiguration =

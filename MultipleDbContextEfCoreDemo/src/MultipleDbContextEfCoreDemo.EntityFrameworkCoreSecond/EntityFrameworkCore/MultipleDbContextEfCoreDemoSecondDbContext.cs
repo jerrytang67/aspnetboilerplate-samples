@@ -1,7 +1,7 @@
 ﻿using Abp.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace MultipleDbContextEfCoreDemo.EntityFrameworkCore
+namespace MultipleDbContextEfCoreDemo.EntityFrameworkCoreSecond.EntityFrameworkCore
 {
     // 2. DbContext
     public class MultipleDbContextEfCoreDemoSecondDbContext : AbpDbContext

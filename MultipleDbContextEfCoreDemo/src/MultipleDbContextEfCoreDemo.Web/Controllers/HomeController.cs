@@ -16,6 +16,7 @@ namespace MultipleDbContextEfCoreDemo.Web.Controllers
         public ActionResult Index()
         {
             var data = _testAppService.GetPeopleAndCourses();
+
             var model = new HomeViewModel
             {
                 Data = data

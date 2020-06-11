@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration;
 using MultipleDbContextEfCoreDemo.Configuration;
+using MultipleDbContextEfCoreDemo.EntityFrameworkCoreSecond.EntityFrameworkCore;
 using MultipleDbContextEfCoreDemo.Web;
 
 namespace MultipleDbContextEfCoreDemo.EntityFrameworkCore

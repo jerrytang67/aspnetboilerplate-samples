@@ -1,9 +1,8 @@
-﻿using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace MultipleDbContextEfCoreDemo.Migrations.MultipleDbContextEfCoreDemoSecondDb
+namespace MultipleDbContextEfCoreDemo.EntityFrameworkCoreSecond.Migrations
 {
-    public partial class Initial_Migration_For_SecondDbContext : Migration
+    public partial class init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -12,7 +11,7 @@ namespace MultipleDbContextEfCoreDemo.Migrations.MultipleDbContextEfCoreDemoSeco
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
-                        .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
+                        .Annotation("SqlServer:Identity", "1, 1"),
                     CourseName = table.Column<string>(nullable: true)
                 },
                 constraints: table =>

@@ -17,15 +17,12 @@ namespace MultipleDbContextEfCoreDemo.Web.Startup
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             //Configure DbContext
-            services.AddAbpDbContext<MultipleDbContextEfCoreDemoDbContext>(options =>
-            {
-                DbContextOptionsConfigurer.Configure(options.DbContextOptions, options.ConnectionString);
-            });
+            services.AddAbpDbContext<MultipleDbContextEfCoreDemoDbContext>(options => { DbContextOptionsConfigurer.Configure(options.DbContextOptions, options.ConnectionString); });
 
-            services.AddMvc(options =>
-            {
-                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
-            });
+
+            // MVC
+            services.AddControllersWithViews(options => { options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute()); })
+                .AddRazorRuntimeCompilation();
 
             //Configure Abp and Dependency Injection
             return services.AddAbp<MultipleDbContextEfCoreDemoWebModule>(options =>
@@ -40,7 +37,9 @@ namespace MultipleDbContextEfCoreDemo.Web.Startup
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseAbp(); //Initializes ABP framework.
-
+            
+            app.UseRouting();
+            
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -52,13 +51,8 @@ namespace MultipleDbContextEfCoreDemo.Web.Startup
             }
 
             app.UseStaticFiles();
-
-            app.UseMvc(routes =>
-            {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            
+            app.UseEndpoints(endpoints => { endpoints.MapDefaultControllerRoute(); });
         }
     }
 }

@@ -5,8 +5,6 @@ using System.Threading.Tasks;
 using Abp.AspNetCore.TestBase;
 using MultipleDbContextEfCoreDemo.EntityFrameworkCore;
 using MultipleDbContextEfCoreDemo.Tests.TestDatas;
-using AngleSharp.Dom.Html;
-using AngleSharp.Parser.Html;
 using Microsoft.AspNetCore.Hosting;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
@@ -114,10 +112,10 @@ namespace MultipleDbContextEfCoreDemo.Web.Tests
 
         #region ParseHtml
 
-        protected IHtmlDocument ParseHtml(string htmlString)
-        {
-            return new HtmlParser().Parse(htmlString);
-        }
+        // protected IHtmlDocument ParseHtml(string htmlString)
+        // {
+        //     return new HtmlParser().Parse(htmlString);
+        // }
 
         #endregion
     }
